@@ -28,23 +28,16 @@ with open(filename, "r") as f:
 	 plaintext = f.read().strip()
 
 # Step 3: Convert the message into an integer
-message_int = int("".join(str(ord(char)) for char in plaintext))
+message_ints = [ord(char) for char in plaintext]
 
 # Step 4: Encrypt using the public key (n, e)
-ciphertext = pow(message_int, e, n)
+ciphertext = [pow(m, e, n) for m in message_ints]
 
 # Step 5: Decrypt using the private key (n, d)
-decrypted_int = pow(ciphertext, d, n)
+decrypted_ints = [pow(c, d, n) for c in ciphertext]
 
 # Step 6: Convert the recovered integer back to text 
-decrypted_digits = str(decrypted_int)
-if len(decrypted_digits) % 2 != 0:
-	decrypted_digits = "0" + decrypted_digits
-
-recovered_text = ""
-for i in range(0, len(decrypted_digits), 2):
-	code = int(decrypted_digits[i:i+2])
-	recovered_text += chr(code)
+recovered_text = "".join(chr(m) for m in decrypted_ints)
 
  # Step 7: Print everything
 print("Plaintext message:      ", plaintext)

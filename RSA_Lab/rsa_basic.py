@@ -41,7 +41,7 @@ recovered_text = "".join(chr(m) for m in decrypted_ints)
 
  # Step 7: Print everything
 print("Plaintext message:      ", plaintext)
-print("Message as integer:     ", message_int)
+print("Message as integer:     ", message_ints)
 print("Ciphertext (encrypted): ", ciphertext)
-print("Decrypted integer:      ", decrypted_int)
+print("Decrypted integer:      ", decrypted_ints)
 print("Recovered plaintext:    ", recovered_text)

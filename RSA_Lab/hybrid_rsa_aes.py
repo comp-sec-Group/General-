@@ -1,3 +1,11 @@
+'''
+Vini Dargas
+09/21/26
+hybrid_rsa_aes.py
+Demonstrates hybrid RSA + AES encryption: a random 16-byte AES-GCM session key
+encrypts the message body, and RSA encrypts that session key for transport.
+'''
+
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from Crypto.PublicKey import RSA
